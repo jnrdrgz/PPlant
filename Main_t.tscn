@@ -1,0 +1,157 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/back_path2.png" type="Texture" id=2]
+[ext_resource path="res://Collectable.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/bones.png" type="Texture" id=5]
+[ext_resource path="res://Assets/trees.png" type="Texture" id=6]
+[ext_resource path="res://Assets/bone.png" type="Texture" id=7]
+
+[node name="Main" type="Node2D"]
+
+[node name="back_path2" type="Sprite" parent="."]
+position = Vector2( 2160.19, 362.029 )
+texture = ExtResource( 2 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" groups=[
+"player",
+] instance=ExtResource( 1 )]
+position = Vector2( 55.597, 47.8478 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Collectables" type="Node2D" parent="YSort"]
+
+[node name="Collectable" parent="YSort/Collectables" instance=ExtResource( 3 )]
+position = Vector2( 236.909, 114.072 )
+collectable_type = 3
+
+[node name="Enemies" type="Node2D" parent="YSort"]
+
+[node name="Enemy" parent="YSort/Enemies" instance=ExtResource( 4 )]
+position = Vector2( 157.164, 47.8138 )
+
+[node name="Enemy2" parent="YSort/Enemies" instance=ExtResource( 4 )]
+position = Vector2( 201.709, 69.1954 )
+
+[node name="Decoration" type="Node2D" parent="YSort"]
+
+[node name="bones" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 258.92, 77.2241 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="bones2" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 103.766, 108.381 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="trees" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 34.0818, 79.2148 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees4" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 113.806, 77.0958 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees9" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 104.463, 81.7678 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees10" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 85.7748, 76.4284 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees5" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 209.578, 82.8867 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees6" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 270.138, 14.5185 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees7" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 228.349, 14.5641 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees8" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 252.133, 22.1028 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees11" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 421.112, 73.8484 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees12" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 406.338, 61.7103 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees13" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 403.107, 81.4327 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees14" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 349.068, 45.243 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees15" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 315.754, 44.7589 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees16" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 336.89, 28.9893 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="bone" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 85.5108, 113.54 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 7 )
+
+[node name="bone2" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 89.0824, 123.065 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 7 )
+
+[node name="bone3" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 157.884, 113.532 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 7 )
+
+[node name="bones3" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 115.671, 107.985 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="CanvasL" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Warning" type="RichTextLabel" parent="CanvasL"]
+visible = false
+margin_left = 151.945
+margin_top = 5.18259
+margin_right = 371.945
+margin_bottom = 45.1826
+text = "you are getting out of the path, scary monsters can appear"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bones" type="Sprite" parent="CanvasL/Warning"]
+position = Vector2( -74.4446, 127.317 )
+texture = ExtResource( 5 )
