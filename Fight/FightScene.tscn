@@ -1,0 +1,144 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Fight/FightScene.gd" type="Script" id=1]
+[ext_resource path="res://Assets/back_t.png" type="Texture" id=2]
+[ext_resource path="res://Assets/phantom.png" type="Texture" id=3]
+[ext_resource path="res://Assets/player.png" type="Texture" id=4]
+[ext_resource path="res://Fight/BaseButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fight/AttackButton.gd" type="Script" id=6]
+[ext_resource path="res://Fight/AttacksMenu.tscn" type="PackedScene" id=7]
+
+[node name="FightScene" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Damage" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "DAMAGE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_t" type="Sprite" parent="."]
+position = Vector2( 589.366, -5.39063 )
+scale = Vector2( 2.79095, 3.34167 )
+texture = ExtResource( 2 )
+
+[node name="PlayerPosRef" type="Node2D" parent="."]
+position = Vector2( 130.108, 131.522 )
+
+[node name="Enemies" type="Node2D" parent="."]
+position = Vector2( 534.594, 103.243 )
+
+[node name="Enemy1" type="Node2D" parent="Enemies"]
+position = Vector2( 29.4629, 52.3522 )
+
+[node name="Enemy2" type="Node2D" parent="Enemies"]
+position = Vector2( 24.5237, 137.253 )
+
+[node name="Enemy3" type="Node2D" parent="Enemies"]
+position = Vector2( 126.192, 49.1774 )
+
+[node name="Enemy4" type="Node2D" parent="Enemies"]
+position = Vector2( 129.132, 133.18 )
+
+[node name="Player" type="Sprite" parent="."]
+position = Vector2( 199.467, 195.152 )
+scale = Vector2( 1.78125, 1.8125 )
+texture = ExtResource( 4 )
+
+[node name="Enemy" type="Sprite" parent="."]
+position = Vector2( 772.661, 92.2883 )
+scale = Vector2( 1.71875, 1.65625 )
+texture = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 402.552, 319.955 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="MainMenu" type="Control" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -305.091
+margin_top = -294.862
+margin_right = 287.909
+margin_bottom = -95.8621
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AttackButton" parent="CanvasLayer/MainMenu" instance=ExtResource( 5 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -213.893
+margin_top = -159.873
+margin_right = -12.8929
+margin_bottom = -110.873
+script = ExtResource( 6 )
+
+[node name="Label" parent="CanvasLayer/MainMenu/AttackButton" index="0"]
+text = "Attack"
+
+[node name="ItemButton" parent="CanvasLayer/MainMenu" instance=ExtResource( 5 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 36.8314
+margin_top = -159.579
+margin_right = 237.831
+margin_bottom = -104.573
+
+[node name="Label" parent="CanvasLayer/MainMenu/ItemButton" index="0"]
+text = "Item"
+
+[node name="RunButton" parent="CanvasLayer/MainMenu" instance=ExtResource( 5 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -87.9008
+margin_top = -86.5041
+margin_right = 113.099
+margin_bottom = -31.4981
+
+[node name="Label" parent="CanvasLayer/MainMenu/RunButton" index="0"]
+text = "Run"
+
+[node name="Items" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -278.982
+margin_top = -288.67
+margin_right = 314.018
+margin_bottom = -2.66968
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Attacks" parent="CanvasLayer" instance=ExtResource( 7 )]
+visible = false
+margin_left = 235.908
+margin_top = 474.452
+margin_right = 243.008
+margin_bottom = 540.612
+[connection signal="pressed" from="CanvasLayer/MainMenu/AttackButton" to="CanvasLayer/MainMenu/AttackButton" method="_on_AttackButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Attacks/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="CanvasLayer/Attacks/HBoxContainer/VBoxContainer/BareHands" to="." method="_on_BareHands_pressed"]
+
+[editable path="CanvasLayer/MainMenu/AttackButton"]
+
+[editable path="CanvasLayer/MainMenu/ItemButton"]
+
+[editable path="CanvasLayer/MainMenu/RunButton"]
+
+[editable path="CanvasLayer/Attacks"]

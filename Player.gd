@@ -7,11 +7,18 @@ var velocity = Vector2.ZERO
 var radioact = 0
 var health = 100
 
+var is_inside_lagoon = false
+
 #enum state {in_game, in_fight}
+
+
+var items = []
+var attacks = ["bare_hands", "rock_throw"]
 
 var in_game = true 
 func ready():
 	pass
+	
 
 func get_input():
 	if in_game:
@@ -34,3 +41,7 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
+
+func _on_RadTimer_timeout():
+	if is_inside_lagoon:
+		radioact += 2
