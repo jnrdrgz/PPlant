@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Fight/sword.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Fight/sword_flash.png" type="Texture" id=2]
+[ext_resource path="res://Fight/Sword.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "attack"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("sword:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 15.0, 0.0, -32.2, -85.9, -42.9, 10.8, 89.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sword:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 16.0459, 8.02293 ), Vector2( 0, 0 ), Vector2( -1.88776, -11.7984 ), Vector2( -25.4846, -19.3494 ), Vector2( -3.30358, -10.8546 ), Vector2( 28.7881, -15.5739 ), Vector2( 34.9233, 8.02293 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sword_flash:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+
+[node name="Sword" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="sword_flash" type="Sprite" parent="."]
+visible = false
+position = Vector2( 65.5711, -9.9295 )
+rotation = 0.375246
+texture = ExtResource( 2 )
+
+[node name="sword" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 1 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -24,6 +24,9 @@ position = Vector2( 589.366, -5.39063 )
 scale = Vector2( 2.79095, 3.34167 )
 texture = ExtResource( 2 )
 
+[node name="AttackPosRef" type="Node2D" parent="."]
+position = Vector2( 340, 184 )
+
 [node name="PlayerPosRef" type="Node2D" parent="."]
 position = Vector2( 130.108, 131.522 )
 
@@ -134,6 +137,9 @@ margin_bottom = 540.612
 [connection signal="pressed" from="CanvasLayer/MainMenu/AttackButton" to="CanvasLayer/MainMenu/AttackButton" method="_on_AttackButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Attacks/Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Attacks/HBoxContainer/VBoxContainer/BareHands" to="." method="_on_BareHands_pressed"]
+[connection signal="pressed" from="CanvasLayer/Attacks/HBoxContainer/VBoxContainer/Gun" to="." method="_on_Gun_pressed"]
+[connection signal="pressed" from="CanvasLayer/Attacks/HBoxContainer/VBoxContainer2/Rock" to="." method="_on_Rock_pressed"]
+[connection signal="pressed" from="CanvasLayer/Attacks/HBoxContainer/VBoxContainer2/Knife" to="." method="_on_Knife_pressed"]
 
 [editable path="CanvasLayer/MainMenu/AttackButton"]
 
