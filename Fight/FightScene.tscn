@@ -45,7 +45,7 @@ position = Vector2( 126.192, 49.1774 )
 [node name="Enemy4" type="Node2D" parent="Enemies"]
 position = Vector2( 129.132, 133.18 )
 
-[node name="Player" type="Sprite" parent="."]
+[node name="FightPlayer" type="Sprite" parent="."]
 position = Vector2( 199.467, 195.152 )
 scale = Vector2( 1.78125, 1.8125 )
 texture = ExtResource( 4 )

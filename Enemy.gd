@@ -13,6 +13,7 @@ onready var textures = [
 		load("res://Assets/phantom.png")]
 
 var health = 0
+var max_health = 0
 var run_prob = 0
 var max_att = 0
 var less_att = 0
@@ -30,7 +31,7 @@ func _ready():
 	match enemy_type:
 		ctype.BAT:
 			sprite.texture = textures[0]
-			health = 10
+			max_health = 10
 			enemy_str = "bat"
 			run_prob = 75
 			less_att = 5
@@ -38,7 +39,7 @@ func _ready():
 			
 		ctype.CROCO:
 			sprite.texture = textures[1]
-			health = 20
+			max_health = 20
 			enemy_str = "croco"
 			run_prob = 40
 			less_att = 20
@@ -46,12 +47,16 @@ func _ready():
 
 		ctype.PHANTOM:
 			sprite.texture = textures[2]
-			health = 50
+			max_health = 50
 			enemy_str = "phantom"
 			run_prob = 2
 			less_att = 60
 			max_att = 80
-
+	
+	health = max_health
+	sub_health(0) ##sub 0 to update the label
+		
+		
 func play_anim(anim):
 	return ###borrar
 	if anim_player.current_animation == anim:
@@ -87,3 +92,16 @@ func _on_TextureButton_pressed():
 	
 		$Square.visible = !$Square.visible
 		selected = $Square.visible
+
+func sub_health(q):
+	health -= q
+	$UI/Label.text = str(health) + "/" + str(max_health)
+
+func take_turn(player):
+	if player:
+		player.health -= max_att
+		print("Enemy attacked")	
+	else:
+		print("Enemy not attacked, null player")	
+	
+	
