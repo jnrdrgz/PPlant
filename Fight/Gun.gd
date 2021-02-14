@@ -1,8 +1,8 @@
 extends Node2D
 
 var finished = false
-var min_damage = 49
-var max_damage = 79
+var min_damage = 50
+var max_damage = 95
 var prec = 90
 
 onready var anim_player = $AnimationPlayer
@@ -16,9 +16,11 @@ func _process(delta):
 		queue_free()
 		finished = false
 
+signal endAttackAnimSignal
 func _on_AnimationPlayer_animation_finished(anim_name):
 	var a = anim_name
 	finished = true
+	emit_signal("endAttackAnimSignal")
 
 func do_anim():
 	play_anim("shoot")

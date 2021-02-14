@@ -1,6 +1,6 @@
 extends Area2D
 
-enum ctype {IODE, HEALTH_1, HEALTH_2, HEALTH_3, GUN, SWORD, BULLET}
+enum ctype {IODE, HEALTH_1, HEALTH_2, HEALTH_3, GUN, SWORD, BULLET, ROCK}
 
 export (ctype) var collectable_type
 
@@ -54,11 +54,13 @@ func _on_Collectable_body_entered(body):
 				body.radioact = 0
 		
 		if collectable_type == ctype.GUN:
-			pass
+			body.gun = true
 		if collectable_type == ctype.SWORD:
-			pass
+			body.sword = true
 		if collectable_type == ctype.BULLET:
-			pass
+			body.bullets += 2
+		if collectable_type == ctype.ROCK:
+			body.rocks += 10
 		
 		queue_free()
 		

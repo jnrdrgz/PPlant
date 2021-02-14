@@ -22,7 +22,19 @@ texture = ExtResource( 2 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Lagoon" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 157.99, 68.4805 )
+position = Vector2( 158.551, 68.4805 )
+scale = Vector2( 0.521518, 0.366958 )
+
+[node name="Lagoon3" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 278.655, 198.125 )
+scale = Vector2( 0.521518, 0.366958 )
+
+[node name="Lagoon4" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 495.16, 84.2535 )
+scale = Vector2( 0.521518, 0.366958 )
+
+[node name="Lagoon5" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 660.752, 50.1244 )
 scale = Vector2( 0.521518, 0.366958 )
 
 [node name="Lagoon2" parent="YSort" instance=ExtResource( 8 )]
@@ -30,7 +42,7 @@ position = Vector2( 206.153, 49.4532 )
 scale = Vector2( 0.521518, 0.366958 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 209.04, 122.094 )
+position = Vector2( 62.8341, 57.4668 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="Collectables" type="Node2D" parent="YSort"]
@@ -39,13 +51,61 @@ scale = Vector2( 0.25, 0.25 )
 position = Vector2( 239.429, 177.068 )
 collectable_type = 3
 
+[node name="Collectable3" parent="YSort/Collectables" instance=ExtResource( 3 )]
+position = Vector2( 844.88, 38.3938 )
+collectable_type = 3
+
+[node name="Collectable4" parent="YSort/Collectables" instance=ExtResource( 3 )]
+position = Vector2( 834.676, 60.6797 )
+collectable_type = 3
+
+[node name="Collectable5" parent="YSort/Collectables" instance=ExtResource( 3 )]
+position = Vector2( 818.901, 39.2307 )
+collectable_type = 3
+
+[node name="Collectable6" parent="YSort/Collectables" instance=ExtResource( 3 )]
+position = Vector2( 808.901, 61.7307 )
+collectable_type = 3
+
 [node name="Collectable2" parent="YSort/Collectables" instance=ExtResource( 3 )]
 position = Vector2( 258.291, 141.69 )
+
+[node name="Collectable7" parent="YSort/Collectables" instance=ExtResource( 3 )]
+position = Vector2( 604.769, 53.4955 )
+
+[node name="Collectable8" parent="YSort/Collectables" instance=ExtResource( 3 )]
+position = Vector2( 721.942, 62.315 )
+
+[node name="Collectable9" parent="YSort/Collectables" instance=ExtResource( 3 )]
+position = Vector2( 742.73, 37.7465 )
 
 [node name="Enemies" type="Node2D" parent="YSort"]
 
 [node name="Enemy" parent="YSort/Enemies" instance=ExtResource( 4 )]
 position = Vector2( 157.479, 48.1288 )
+
+[node name="Enemy5" parent="YSort/Enemies" instance=ExtResource( 4 )]
+position = Vector2( 393.576, 125.911 )
+enemy_type = 2
+
+[node name="Enemy7" parent="YSort/Enemies" instance=ExtResource( 4 )]
+position = Vector2( 482.4, 63.5444 )
+enemy_type = 1
+number = 3
+
+[node name="Enemy8" parent="YSort/Enemies" instance=ExtResource( 4 )]
+position = Vector2( 524.607, 65.4343 )
+enemy_type = 1
+number = 3
+
+[node name="Enemy9" parent="YSort/Enemies" instance=ExtResource( 4 )]
+position = Vector2( 508.228, 47.1655 )
+enemy_type = 1
+number = 3
+
+[node name="Enemy6" parent="YSort/Enemies" instance=ExtResource( 4 )]
+position = Vector2( 318.699, 188.136 )
+enemy_type = 1
 
 [node name="Enemy2" parent="YSort/Enemies" instance=ExtResource( 4 )]
 position = Vector2( 204.979, 71.5738 )
@@ -66,6 +126,31 @@ position = Vector2( 0, 0.148651 )
 
 [node name="bones" type="Sprite" parent="YSort/Decoration"]
 position = Vector2( 258.92, 77.2241 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="bones7" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 522.244, 81.6338 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="bones5" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 528.543, 47.616 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="bones6" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 487.596, 48.8759 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="bones4" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 339.176, 112.582 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="bones8" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 461.229, 141.536 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 5 )
 
@@ -124,8 +209,33 @@ position = Vector2( 406.338, 61.7103 )
 scale = Vector2( 0.33, 0.400355 )
 texture = ExtResource( 6 )
 
+[node name="trees20" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 508.392, 23.9127 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees21" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 485.713, 12.5734 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
 [node name="trees13" type="Sprite" parent="YSort/Decoration"]
 position = Vector2( 403.107, 81.4327 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees17" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 424.464, 180.211 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees18" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 427.134, 244.283 )
+scale = Vector2( 0.33, 0.400355 )
+texture = ExtResource( 6 )
+
+[node name="trees19" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 379.08, 212.247 )
 scale = Vector2( 0.33, 0.400355 )
 texture = ExtResource( 6 )
 
@@ -151,6 +261,23 @@ texture = ExtResource( 7 )
 
 [node name="bone2" type="Sprite" parent="YSort/Decoration"]
 position = Vector2( 89.0824, 123.065 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 7 )
+
+[node name="bone4" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 451.137, 172.715 )
+rotation = 2.43299
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 7 )
+
+[node name="bone5" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 441.698, 171.378 )
+rotation = -2.05949
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 7 )
+
+[node name="bone6" type="Sprite" parent="YSort/Decoration"]
+position = Vector2( 454.988, 181.682 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 7 )
 

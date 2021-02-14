@@ -15,10 +15,12 @@ onready var textures = [
 var health = 0
 var max_health = 0
 var run_prob = 0
+var min_att = 0
 var max_att = 0
 var less_att = 0
 var enemy_str 
 
+var turn = false
 var in_fight = false
 var selected = false
 
@@ -31,34 +33,36 @@ func _ready():
 	match enemy_type:
 		ctype.BAT:
 			sprite.texture = textures[0]
-			max_health = 10
+			max_health = 50
 			enemy_str = "bat"
 			run_prob = 75
 			less_att = 5
-			max_att = 20
+			min_att = 5
+			max_att = 10
 			
 		ctype.CROCO:
 			sprite.texture = textures[1]
-			max_health = 20
+			max_health = 100
 			enemy_str = "croco"
 			run_prob = 40
 			less_att = 20
-			max_att = 60
+			min_att = 15
+			max_att = 30
 
 		ctype.PHANTOM:
 			sprite.texture = textures[2]
-			max_health = 50
+			max_health = 250
 			enemy_str = "phantom"
 			run_prob = 2
 			less_att = 60
-			max_att = 80
+			min_att = 20
+			max_att = 40
 	
 	health = max_health
 	sub_health(0) ##sub 0 to update the label
 		
 		
 func play_anim(anim):
-	return ###borrar
 	if anim_player.current_animation == anim:
 		return
 	anim_player.play(anim)
@@ -93,15 +97,30 @@ func _on_TextureButton_pressed():
 		$Square.visible = !$Square.visible
 		selected = $Square.visible
 
+signal enemyDeadSignal
 func sub_health(q):
 	health -= q
-	$UI/Label.text = str(health) + "/" + str(max_health)
+	if health < 0:
+		health = 0
+		emit_signal("enemyDeadSignal")
+		queue_free()
+	else:
+		$UI/Label.text = str(health) + "/" + str(max_health)
 
+var rng = RandomNumberGenerator.new()
 func take_turn(player):
 	if player:
-		player.health -= max_att
+		rng.randomize()
+		player.health -= rng.randi_range(min_att,max_att)
+		play_anim("attack")
 		print("Enemy attacked")	
 	else:
 		print("Enemy not attacked, null player")	
-	
-	
+
+signal endAttackAnimSignal
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "attack":
+		emit_signal("endAttackAnimSignal")
+		print("END ENEMY TURN")
+	if anim_name == "receive_damage":
+		pass

@@ -1,10 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/player.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18.0273, 24.8188 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "walking"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0.5, -15 ), Vector2( 0, 0 ) ]
+}
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
@@ -29,4 +45,7 @@ drag_margin_h_enabled = true
 [node name="RadTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/walking = SubResource( 2 )
 [connection signal="timeout" from="RadTimer" to="." method="_on_RadTimer_timeout"]

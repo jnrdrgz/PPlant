@@ -16,8 +16,11 @@ func _process(delta):
 		queue_free()
 		finished = false
 
+signal endAttackAnimSignal
 func _on_AnimationPlayer_animation_finished(anim_name):
+	var a = anim_name
 	finished = true
+	emit_signal("endAttackAnimSignal")
 
 func do_anim():
 	play_anim("throw")
