@@ -67,6 +67,8 @@ func get_input():
 			Sound.stop("walking")
 		
 		velocity = velocity.normalized() * speed
+	else:
+		velocity = Vector2.ZERO
 		
 
 ##show waring

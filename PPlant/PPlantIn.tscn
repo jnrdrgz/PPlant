@@ -33,15 +33,14 @@ follow_viewport_enable = true
 script = ExtResource( 5 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -317.326
-margin_top = -236.256
-margin_right = 322.674
-margin_bottom = 243.745
+margin_left = -326.619
+margin_top = -234.222
+margin_right = 513.381
+margin_bottom = 387.778
 rect_scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 4 )
 stretch_mode = 1
@@ -49,12 +48,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 109.667
+margin_top = 90.9932
+margin_right = 334.667
+margin_bottom = 139.993
+rect_scale = Vector2( 0.5, 0.5 )
+text = "How much is 2 to the power of 2?"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LineEdit" type="LineEdit" parent="CanvasLayer"]
-visible = false
-margin_left = 131.6
-margin_top = 119.828
-margin_right = 189.6
-margin_bottom = 143.828
+margin_left = 139.439
+margin_top = 121.317
+margin_right = 197.439
+margin_bottom = 145.317
 text = "1"
 max_length = 3
 expand_to_text_length = true
@@ -64,4 +75,17 @@ caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SubmitButton" type="Button" parent="CanvasLayer"]
+margin_left = 136.733
+margin_top = 154.567
+margin_right = 201.733
+margin_bottom = 174.567
+text = "Submit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="switched" from="YSort/Switch" to="." method="_on_Switch_switched"]
 [connection signal="text_changed" from="CanvasLayer/LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="button_down" from="CanvasLayer/SubmitButton" to="." method="_on_SubmitButton_button_down"]
+[connection signal="pressed" from="CanvasLayer/SubmitButton" to="." method="_on_SubmitButton_pressed"]
