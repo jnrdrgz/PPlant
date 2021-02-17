@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://PPlant/Switch.tscn" type="PackedScene" id=1]
+[ext_resource path="res://PPlant/PPlantIn.gd" type="Script" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/portada.png" type="Texture" id=4]
+[ext_resource path="res://PPlant/CanvasLayer.gd" type="Script" id=5]
+
+[node name="PPlantIn" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 74.8885, 115.286 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Switch" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 101.279, 64.2753 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Switch2" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 154.196, 64.2753 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Switch3" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 205.222, 64.2753 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enable = true
+script = ExtResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -317.326
+margin_top = -236.256
+margin_right = 322.674
+margin_bottom = 243.745
+rect_scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 4 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer"]
+visible = false
+margin_left = 131.6
+margin_top = 119.828
+margin_right = 189.6
+margin_bottom = 143.828
+text = "1"
+max_length = 3
+expand_to_text_length = true
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_changed" from="CanvasLayer/LineEdit" to="." method="_on_LineEdit_text_changed"]

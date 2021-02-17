@@ -72,7 +72,14 @@ func enter_fight(player):
 	fight_scene.enemy = enemy_str
 	fight_scene.player_attacks = player.attacks
 	fight_scene.n_enemies = number
+	
+	fight_scene.gun = player.gun
+	fight_scene.sword = player.sword
+	fight_scene.bullets = player.bullets
+	fight_scene.rocks = player.rocks
+	
 	fight_scene.get_node("Camera2D").current = true
+	
 	get_tree().get_root().add_child(fight_scene)
 	
 	queue_free()

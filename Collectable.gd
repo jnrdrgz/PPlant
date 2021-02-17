@@ -10,7 +10,10 @@ onready var textures = [
 		load("res://Assets/health_coll.png"),
 		load("res://Assets/health_coll2.png"),
 		load("res://Assets/health_coll3.png"),
-		load("res://Assets/pots.png")]
+		load("res://Assets/pots.png"),
+		load("res://Assets/Fight/gun.png"),
+		load("res://Assets/Fight/sword.png"),
+		load("res://Assets/Fight/rock.png")]
 
 func _ready():
 	play_anim("float_base")
@@ -23,6 +26,12 @@ func _ready():
 			sprite.texture = textures[2]
 		ctype.IODE:
 			sprite.texture = textures[3]
+		ctype.GUN:
+			sprite.texture = textures[4]
+		ctype.SWORD:
+			sprite.texture = textures[5]
+		ctype.ROCK:
+			sprite.texture = textures[6]
 			
 func play_anim(anim):
 	if anim_player.current_animation == anim:
@@ -55,10 +64,9 @@ func _on_Collectable_body_entered(body):
 		
 		if collectable_type == ctype.GUN:
 			body.gun = true
+			body.bullets += 2
 		if collectable_type == ctype.SWORD:
 			body.sword = true
-		if collectable_type == ctype.BULLET:
-			body.bullets += 2
 		if collectable_type == ctype.ROCK:
 			body.rocks += 10
 		

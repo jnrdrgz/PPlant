@@ -4,15 +4,17 @@ var enemy : String
 var n_enemies : int
 var player_attacks : Array
 var player_items : Array
-#onready var enemy_scene = preload("res://Enemy.tscn")#.instance()
-
-var player_dead = false
 
 var turn = true
+var player_dead = false
+var enemy_attacked = false
 
 var run_prob = 100
  
-var enemy_attacked = false
+var gun = false
+var sword = false
+var bullets = 0
+var rocks = 0
 
 func _ready():
 	print("Fight entered")
@@ -45,13 +47,12 @@ func _ready():
 
 func changeTurn():
 	print("TURN CHANGED")
-	#turn = !turn
-	#enemy_attacked = false
-	#player_attacked = false
 	var pl = get_parent().get_node("Main").get_node("YSort/Player")
+	pl.bullets = bullets
+	pl.rocks = rocks
 	if pl.health <= 0:
 		player_dead = true
-		pl.dead = true
+		#pl.dead = true
 	$PTurnTimer.start()
 	
 var dead_enemies = 0
@@ -66,9 +67,9 @@ func _process(delta):
 	
 	if dead_enemies == n_enemies:
 		create_timer_and_free("ALL ENEMIES DEFEATED, CONTINUE YOUR JOURNEY!", 5)
-	
+		
 	if player_dead:
-		create_timer_and_free("YOU'RE DEAD", 5)
+		create_timer_and_free_dead("YOU'RE DEAD", 5)
 	
 func create_timer_and_free(message = "", limit = 4):
 	##set message
@@ -78,6 +79,23 @@ func create_timer_and_free(message = "", limit = 4):
 	timer.connect("timeout",self,"queue_free") 
 	add_child(timer) 
 	timer.start() 
+
+func create_timer_and_free_dead(message = "", limit = 4):
+	##set message
+	$CanvasLayer/Messages.text = message
+	var timer = Timer.new()
+	timer.set_wait_time(limit)
+	timer.connect("timeout",self,"queue_free_and_pl_dead") 
+	add_child(timer) 
+	timer.start() 
+
+func queue_free_and_pl_dead():
+	if player_dead:
+		var pl = get_parent().get_node("Main").get_node("YSort/Player")
+		pl.dead = true
+	
+	queue_free()
+
 	
 func create_message(message = ""):
 	$CanvasLayer/Messages.text = message
@@ -116,10 +134,16 @@ func do_attack(att):
 		var sc = "res://Fight/Gun.tscn"
 		if att == "gun":
 			sc = "res://Fight/Gun.tscn"
+			if bullets > 0:
+				bullets -= 1
+				print(bullets)
 		if att == "sword":
 			sc = "res://Fight/Sword.tscn"
 		if att == "rock":
 			sc = "res://Fight/Rock.tscn"
+			if rocks > 0:
+				rocks -= 1
+				print(rocks)
 		if att == "bare_hands":
 			sc = "res://Fight/BareHands.tscn"
 		
@@ -177,20 +201,30 @@ func do_turn(att):
 		print("not your turn")
 
 func _on_Gun_pressed():
-	do_turn("gun")
+	if gun:
+		if bullets > 0:
+			do_turn("gun")
+		else:
+			create_message("Out of bullets!")
+	else:
+		create_message("You don't have a gun yet!")
 
 func _on_Knife_pressed():
-	do_turn("sword")
+	if sword:
+		do_turn("sword")
+	else:
+		create_message("You don't have a sword yet!")
 
 func _on_Rock_pressed():
-	do_turn("rock")
+	if rocks > 0:
+		do_turn("rock")
+	else:
+		create_message("Out of rocks!")
 				
 func _on_BareHands_pressed():
 	do_turn("bare_hands")
 
 func _on_PTurnTimer_timeout():
-	#turn = !turn
-	#attacking = false
 	turn = !turn
 	enemy_attacked = false
 	player_attacked = false
@@ -206,5 +240,3 @@ func _on_RunButton_pressed():
 		else:
 			create_message("CANNOT RUN!")
 			turn = false
-		
-		

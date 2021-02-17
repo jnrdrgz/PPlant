@@ -3,6 +3,10 @@
 [ext_resource path="res://Assets/Fight/rock.png" type="Texture" id=1]
 [ext_resource path="res://Fight/Rock.gd" type="Script" id=2]
 
+
+
+
+
 [sub_resource type="Animation" id=1]
 resource_name = "throw"
 length = 1.5

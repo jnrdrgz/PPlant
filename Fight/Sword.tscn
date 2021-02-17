@@ -4,6 +4,10 @@
 [ext_resource path="res://Assets/Fight/sword_flash.png" type="Texture" id=2]
 [ext_resource path="res://Fight/Sword.gd" type="Script" id=3]
 
+
+
+
+
 [sub_resource type="Animation" id=1]
 resource_name = "attack"
 length = 1.3
