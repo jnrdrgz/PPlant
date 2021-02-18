@@ -18,6 +18,5 @@ func _process(delta):
 		Sound.play("nuclear_bip")
 		
 func goToMenu():
-	get_tree().get_root().add_child(menu_scene)
-	queue_free()
+	get_tree().change_scene("res://Menu.tscn")
 

@@ -26,11 +26,10 @@ __meta__ = {
 [node name="YSort" type="YSort" parent="."]
 
 [node name="PPlantOut" parent="YSort" instance=ExtResource( 12 )]
-position = Vector2( 4135.35, 219.057 )
-scale = Vector2( 1.375, 1.375 )
+position = Vector2( 4092.7, 242.629 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 3879.45, 459.518 )
+position = Vector2( 54.9634, 59.8072 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="Collectables" type="Node2D" parent="YSort"]

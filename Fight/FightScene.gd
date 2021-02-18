@@ -73,6 +73,7 @@ func _process(delta):
 	
 func create_timer_and_free(message = "", limit = 4):
 	##set message
+	$CanvasLayer/Messages.show()
 	$CanvasLayer/Messages.text = message
 	var timer = Timer.new()
 	timer.set_wait_time(limit)
@@ -82,6 +83,7 @@ func create_timer_and_free(message = "", limit = 4):
 
 func create_timer_and_free_dead(message = "", limit = 4):
 	##set message
+	$CanvasLayer/Messages.show()
 	$CanvasLayer/Messages.text = message
 	var timer = Timer.new()
 	timer.set_wait_time(limit)
@@ -98,10 +100,12 @@ func queue_free_and_pl_dead():
 
 	
 func create_message(message = ""):
+	$CanvasLayer/Messages.show()
 	$CanvasLayer/Messages.text = message
 	
 
 func show_message_and_free():
+	$CanvasLayer/Messages.show()
 	queue_free()
 		
 func deadEnemyCount():

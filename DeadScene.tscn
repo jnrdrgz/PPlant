@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/dead.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="dead" type="Sprite" parent="."]
+position = Vector2( 428.437, 332.726 )
+scale = Vector2( 1.3161, 1.34961 )
+texture = ExtResource( 1 )

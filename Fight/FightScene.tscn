@@ -137,6 +137,7 @@ margin_right = 243.008
 margin_bottom = 540.612
 
 [node name="Messages" type="Label" parent="CanvasLayer"]
+visible = false
 margin_left = 208.432
 margin_top = 5.0
 margin_right = 597.432

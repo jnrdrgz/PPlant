@@ -1,14 +1,13 @@
 extends Node2D
 
-
 onready var nucelar_bip = $NuclearBip
 onready var walking = $Steps
 
-var sound_enabled = true
+var sound_enabled = false
 
 func _ready():
-	pass # Replace with function body.
-
+	pass
+	
 func play(name):
 	if sound_enabled:
 		if name == "nuclear_bip" and not nucelar_bip.playing:
@@ -17,8 +16,9 @@ func play(name):
 			walking.play()
 	
 func stop(name):
-	if name == "nuclear_bip" and nucelar_bip.playing:
-		nucelar_bip.stop()
-	if name == "walking" and walking.playing:
-		walking.stop()
+	if sound_enabled:
+		if name == "nuclear_bip" and nucelar_bip.playing:
+			nucelar_bip.stop()
+		if name == "walking" and walking.playing:
+			walking.stop()
 	

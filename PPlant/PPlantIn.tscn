@@ -62,12 +62,12 @@ __meta__ = {
 }
 
 [node name="LineEdit" type="LineEdit" parent="CanvasLayer"]
-margin_left = 139.439
-margin_top = 121.317
-margin_right = 197.439
-margin_bottom = 145.317
+margin_left = 121.162
+margin_top = 121.0
+margin_right = 200.162
+margin_bottom = 145.0
 text = "1"
-max_length = 3
+max_length = 5
 expand_to_text_length = true
 virtual_keyboard_enabled = false
 shortcut_keys_enabled = false
@@ -76,16 +76,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SubmitButton" type="Button" parent="CanvasLayer"]
-margin_left = 136.733
-margin_top = 154.567
-margin_right = 201.733
-margin_bottom = 174.567
-text = "Submit"
+[node name="CheckLabel" type="Label" parent="CanvasLayer"]
+margin_left = 97.8647
+margin_top = 153.0
+margin_right = 369.865
+margin_bottom = 199.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "Press enter to check your answer"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="switched" from="YSort/Switch" to="." method="_on_Switch_switched"]
+[connection signal="switched" from="YSort/Switch2" to="." method="_on_Switch2_switched"]
+[connection signal="switched" from="YSort/Switch3" to="." method="_on_Switch3_switched"]
 [connection signal="text_changed" from="CanvasLayer/LineEdit" to="." method="_on_LineEdit_text_changed"]
-[connection signal="button_down" from="CanvasLayer/SubmitButton" to="." method="_on_SubmitButton_button_down"]
-[connection signal="pressed" from="CanvasLayer/SubmitButton" to="." method="_on_SubmitButton_pressed"]

@@ -19,9 +19,9 @@ var attacks = ["bare_hands", "rock_throw"]
 var in_game = true 
 var dead = false
 
-var gun = false
-var sword = false
-var bullets = 0
+var gun = true
+var sword = true
+var bullets = 10
 var rocks = 10
 
 onready var anim_player = $AnimationPlayer
