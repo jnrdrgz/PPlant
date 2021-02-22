@@ -3,7 +3,7 @@ extends Node2D
 onready var nucelar_bip = $NuclearBip
 onready var walking = $Steps
 
-var sound_enabled = false
+var sound_enabled = true
 
 func _ready():
 	pass
